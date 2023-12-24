@@ -83,6 +83,11 @@ class Data {
         password: 'admin',
         name: 'admin',
         role: 'admin'),
+        Account(
+        email: '1',
+        password: '1',
+        name: '1',
+        role: '1'),
 
   ];
 
