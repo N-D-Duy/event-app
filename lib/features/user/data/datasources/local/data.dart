@@ -1,9 +1,11 @@
 import 'package:event_app/features/user/data/models/account.dart';
 import 'package:event_app/features/user/data/models/event.dart';
+import 'package:event_app/features/user/data/models/profile.dart';
 import 'package:event_app/features/user/data/models/ticket.dart';
-
+import 'package:event_app/features/user/data/models/user.dart';
 
 class Data {
+  static List<String> admin = ['tranvietbao', 'nguyenducduy', 'nguyenvanquyet'];
   static List<Event> eventList = [
     Event(
         name: 'Event 1',
@@ -79,11 +81,11 @@ class Data {
 
   static List<Account> accountList = [
     Account(
-        email: 'admin@gmail.com',
+        email: 'admin',
         password: 'admin',
         name: 'admin',
+        profile: profileList[0],
         role: 'admin'),
-
   ];
 
   static List<Ticket> ticketList = [
@@ -101,4 +103,22 @@ class Data {
     Ticket(id: '12', name: 'Ticket 12', price: 1200, eventId: '12'),
   ];
 
+  static List<Profile> profileList = [
+    Profile(
+        address: 'Ha Noi',
+        email: 'admin',
+        avatar: 'assets/images/profile_avatar.jpg',
+        gender: 'male',
+        name: 'nguyen duc duy',
+        phone: '0123456789')
+  ];
+
+  static User user = User(
+      name: 'John Doe',
+      description: 'A Flutter Developer',
+      birthday: '01/01/2000',
+      gender: 'Male',
+      address: '123 Main St, City',
+      phone: '123-456-7890',
+      email: 'johndoe@gmail.com');
 }

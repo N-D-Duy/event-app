@@ -243,6 +243,7 @@ class _SignUpBodySectionState extends State<SignUpBodySection> {
     var confirmPassword = confirmPasswordController.text;
     var username = userNameController.text;
 
+    List<String> adminRole = Data.admin;
     if (email.isEmpty ||
         password.isEmpty ||
         confirmPassword.isEmpty ||
@@ -256,7 +257,11 @@ class _SignUpBodySectionState extends State<SignUpBodySection> {
       MySnackBar.hideSnackBar(context);
       MySnackBar.showSnackBar(context, 'Sign Up Success');
       Data.accountList.add(Account(
-          role: 'user', email: email, password: password, name: username));
+          role: (adminRole.contains(username) ? 'admin' : 'user'),
+          email: email,
+          profile: Data.profileList[0],
+          password: password,
+          name: username));
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => const Login()));
     }
