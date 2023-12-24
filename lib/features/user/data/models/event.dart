@@ -2,11 +2,14 @@ class Event {
   final String name;
   final String description;
   final String time;
+  final String image;
   final String location;
   final String id;
 
   Event(
-      {required this.name,
+      {
+      required this.image,
+      required this.name,
       required this.description,
       required this.time,
       required this.location,
@@ -14,6 +17,7 @@ class Event {
 
   factory Event.fromJson(Map<String, dynamic> json) {
     return Event(
+        image: json['image'],
         name: json['name'],
         description: json['description'],
         time: json['time'],
