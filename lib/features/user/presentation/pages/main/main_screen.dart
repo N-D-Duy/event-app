@@ -1,4 +1,3 @@
-
 import 'package:event_app/features/user/presentation/pages/main/home/home_page.dart';
 import 'package:event_app/features/user/presentation/pages/main/profile/profile_page.dart';
 import 'package:event_app/features/user/presentation/pages/main/search/search_page.dart';
@@ -31,8 +30,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
   int _selectedIndex = 0;
   List<Widget> pages = <Widget>[
     const HomeScreen(),
-    const ProfileScreen(),
     const SearchScreen(),
+    const ProfileScreen(),
   ];
 
   @override
@@ -48,7 +47,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
               child: ClipRRect(
                   borderRadius: const BorderRadius.all(Radius.circular(30)),
                   child: BottomNavigationBar(
-                    backgroundColor: Colors.black.withOpacity(0.3),
+                    elevation: 0.5,
+                    backgroundColor: Colors.white.withOpacity(0.8),
                     onTap: (int index) {
                       setState(() {
                         _selectedIndex = index;
@@ -63,7 +63,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                           icon: Icon(Icons.person), label: 'Profile'),
                     ],
                     currentIndex: _selectedIndex,
-                    selectedItemColor: const Color(0xff11DCE8),
+                    selectedItemColor: Colors.black,
                     unselectedItemColor: Colors.grey[600],
                     showUnselectedLabels: false,
                   ))),
