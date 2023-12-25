@@ -1,4 +1,5 @@
 import 'package:event_app/features/user/data/models/account.dart';
+import 'package:event_app/features/user/data/models/category.dart';
 import 'package:event_app/features/user/data/models/event.dart';
 import 'package:event_app/features/user/data/models/profile.dart';
 import 'package:event_app/features/user/data/models/ticket.dart';
@@ -8,51 +9,58 @@ class Data {
   static List<String> admin = ['tranvietbao', 'nguyenducduy', 'nguyenvanquyet'];
   static List<Event> eventList = [
     Event(
-        name: 'Event 1',
+        name: 'Music Festival',
         description: 'Description 1',
         image: 'assets/images/event_1.jpeg',
+        category: Category.music,
         time: 'Time 1',
         location: 'Location 1',
         id: '1'),
     Event(
-        name: 'Event 2',
+        name: 'Sports Game',
         description: 'Description 2',
         image: 'assets/images/event_2.jpg',
+        category: Category.sports,
         time: 'Time 2',
         location: 'Location 2',
         id: '2'),
     Event(
-        name: 'Event 3',
+        name: 'Food and Wine Tasting',
         description: 'Description 3',
         image: 'assets/images/event_3.jpg',
+        category: Category.food,
         time: 'Time 3',
         location: 'Location 3',
         id: '3'),
     Event(
-        name: 'Event 4',
+        name: 'Art Exhibition',
         description: 'Description 4',
         image: 'assets/images/event_4.jpg',
+        category: Category.art,
         time: 'Time 4',
         location: 'Location 4',
         id: '4'),
     Event(
-        name: 'Event 5',
+        name: 'Book Signing',
         description: 'Description 5',
         image: 'assets/images/event_5.jpg',
         time: 'Time 5',
+        category: Category.other,
         location: 'Location 5',
         id: '5'),
     Event(
-        name: 'Event 6',
+        name: 'Wedding Ceremony',
         description: 'Description 6',
         image: 'assets/images/event_6.jpg',
+        category: Category.wedding,
         time: 'Time 6',
         location: 'Location 6',
         id: '6'),
     Event(
-        name: 'Event 7',
+        name: 'Birthday Party',
         description: 'Description 7',
         image: 'assets/images/event_7.jpg',
+        category: Category.party,
         time: 'Time 7',
         location: 'Location 7',
         id: '7'),
@@ -60,6 +68,7 @@ class Data {
         name: 'Event 8',
         description: 'Description 8',
         image: 'assets/images/event_8.jpg',
+        category: Category.music,
         time: 'Time 8',
         location: 'Location 8',
         id: '8'),
@@ -67,6 +76,7 @@ class Data {
         name: 'Event 9',
         description: 'Description 9',
         image: 'assets/images/event_9.jpeg',
+        category: Category.sports,
         time: 'Time 9',
         location: 'Location 9',
         id: '9'),
@@ -74,6 +84,7 @@ class Data {
         name: 'Event 10',
         description: 'Description 10',
         image: 'assets/images/event_10.jpg',
+        category: Category.food,
         time: 'Time 10',
         location: 'Location 10',
         id: '10'),
