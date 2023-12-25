@@ -1,3 +1,4 @@
+import 'package:event_app/features/user/data/datasources/local/data.dart';
 import 'package:event_app/features/user/presentation/pages/main/main_screen.dart';
 import 'package:event_app/features/user/presentation/pages/main/profile/account_details.dart';
 import 'package:event_app/features/user/presentation/pages/main/search/event_details.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         '/splash': (context) => const SplashScreen(),
         '/home': (context) => const MainScreen(),
         '/account_details': (context) => const AccountDetails(),
-        '/event_details': (context) => const EventDetails(),
+        '/event_details': (context) => EventDetails(Data.eventList[0]),
       },
     );
   }

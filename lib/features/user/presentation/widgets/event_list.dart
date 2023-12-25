@@ -1,4 +1,6 @@
 import 'package:event_app/features/user/data/datasources/local/data.dart';
+import 'package:event_app/features/user/data/models/event.dart';
+import 'package:event_app/features/user/presentation/pages/main/search/event_details.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -54,7 +56,7 @@ class _EventListState extends State<EventList> {
                   ]),
                 ),
                 onTap: () {
-                  _onPressButton(index);
+                  _onPressButton(Data.eventList[index]);
                 },
               )),
         );
@@ -67,8 +69,8 @@ class _EventListState extends State<EventList> {
     ));
   }
 
-  void _onPressButton(int indexEvent) {
-    print('tap: $indexEvent');
+  void _onPressButton(Event event) {
     //Navigation to other widget
+     Navigator.push(context, MaterialPageRoute(builder: (context) => EventDetails(event)));
   }
 }

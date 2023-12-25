@@ -16,13 +16,13 @@ late final List<Widget> _buttons = [
       onPressed: () {
         onClick('Button1');
       },
-      child: Text('Comming Event'),
+      child: Text('All Event'),
     ),
     ElevatedButton(
       onPressed: () {
         onClick('Button2');
       },
-      child: Text('All Event'),
+      child: Text('Comming Event'),
     ),
     ElevatedButton(
       onPressed: () {
@@ -57,7 +57,6 @@ late final List<Widget> _buttons = [
         }
         default:{
           _mcontent.setWidget('Button1');
-          print('Out of content Button');
           break;
         }
       }
