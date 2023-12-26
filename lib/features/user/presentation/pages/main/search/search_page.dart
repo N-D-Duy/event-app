@@ -114,9 +114,8 @@ class _SearchScreenState extends State<SearchScreen> {
                       return ListTile(
                         title: Text(showList[index].name),
                         onTap: () {
-                          // Navigator.pushNamed(context, '/event_details',
-                          //     arguments: showList[index]);
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => EventDetails(showList[index])));
+                          Navigator.pushNamed(context, '/event_details',
+                              arguments: showList[index]);
                         },
                       );
                     },
