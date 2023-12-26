@@ -11,8 +11,8 @@ class _ManageScreenState extends State<ManageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        
+      body: Center(
+        child: Text('Manage Screen'),
       ),
     );
   }

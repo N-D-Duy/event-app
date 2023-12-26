@@ -3,8 +3,6 @@ import 'package:event_app/features/user/data/models/event.dart';
 // import 'package:event_app/features/user/presentation/widgets/timeline.dart';
 import 'package:flutter/material.dart';
 
-import 'package:event_app/features/user/data/models/event.dart';
-
 class EventDetails extends StatefulWidget {
   final Event _event;
   EventDetails(this._event);

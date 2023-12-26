@@ -1,7 +1,6 @@
 import 'package:event_app/features/user/data/datasources/local/data.dart';
 import 'package:event_app/features/user/data/models/category.dart';
 import 'package:event_app/features/user/data/models/event.dart';
-import 'package:event_app/features/user/presentation/pages/main/search/event_details.dart';
 import 'package:event_app/features/user/presentation/widgets/my_search_delegate.dart';
 import 'package:flutter/material.dart';
 
