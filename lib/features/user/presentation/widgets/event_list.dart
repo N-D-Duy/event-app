@@ -35,33 +35,31 @@ class _EventListState extends State<EventList> {
           child: AspectRatio(
               aspectRatio: 2 / 3,
               child: GestureDetector(
-                child: Container(
-                  child: Column(children: [
-                    Expanded(
-                      child: Container(
-                        child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            clipBehavior: Clip.hardEdge,
-                            child: Image.asset(
-                              Data.eventList[index].image,
-                              fit: BoxFit.cover,
-                            )),
-                        width: 250,
-                        height: 250,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30)),
-                      ),
+                child: Column(children: [
+                  Expanded(
+                    child: Container(
+                      width: 250,
+                      height: 250,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30)),
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          clipBehavior: Clip.hardEdge,
+                          child: Image.asset(
+                            Data.eventList[index].image,
+                            fit: BoxFit.cover,
+                          )),
                     ),
-                    Text(Data.eventList[index].name),
-                  ]),
-                ),
+                  ),
+                  Text(Data.eventList[index].name),
+                ]),
                 onTap: () {
                   _onPressButton(Data.eventList[index]);
                 },
               )),
         );
       },
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: 10,
         crossAxisSpacing: 10,

@@ -1,6 +1,7 @@
 import 'package:event_app/features/user/data/datasources/local/data.dart';
 import 'package:event_app/features/user/data/models/category.dart';
 import 'package:event_app/features/user/data/models/event.dart';
+import 'package:event_app/features/user/presentation/pages/main/search/event_details.dart';
 import 'package:event_app/features/user/presentation/widgets/my_search_delegate.dart';
 import 'package:flutter/material.dart';
 
@@ -22,8 +23,6 @@ class _SearchScreenState extends State<SearchScreen> {
     categories = Category.values
         .map((e) => pattern.firstMatch(e.toString())?.group(1) ?? '')
         .toList();
-
-
   }
 
   @override
@@ -113,8 +112,11 @@ class _SearchScreenState extends State<SearchScreen> {
                       return ListTile(
                         title: Text(showList[index].name),
                         onTap: () {
-                          Navigator.pushNamed(context, '/event_details',
-                              arguments: showList[index]);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      EventDetails(showList[index])));
                         },
                       );
                     },
