@@ -1,5 +1,6 @@
-import 'package:event_app/features/user/presentation/widgets/background.dart';
+import 'package:event_app/features/user/presentation/widgets/event_list.dart';
 import 'package:flutter/material.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -9,34 +10,101 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  
+
+late final List<Widget> _buttons = [
+    ElevatedButton(
+      onPressed: () {
+        onClick('Button1');
+      },
+      child: Text('All Event'),
+    ),
+    ElevatedButton(
+      onPressed: () {
+        onClick('Button2');
+      },
+      child: Text('Comming Event'),
+    ),
+    ElevatedButton(
+      onPressed: () {
+        onClick('Button3');
+      },
+      child: Text('My Event'),
+    ),
+  ];
+
   @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: 
-      Stack(
-        children: [
-          Background(),
-          _bodySection(),
-        ],
-      ),);
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    onClick('Button1');
   }
-}
 
-// ignore: camel_case_types
-class _bodySection extends StatefulWidget {
-  const _bodySection({super.key});
+  void onClick(String name){
+    setState(() {
+      switch(name){
+        case 'Button1':
+        {
+          _mcontent.setWidget('Button1');
+          break;
+        }
+        case 'Button2':{
+          _mcontent.setWidget('Button2');
+          break;
+        }
+        case 'Button3':{
+          _mcontent.setWidget('Button3');
+          break;
+        }
+        default:{
+          _mcontent.setWidget('Button1');
+          break;
+        }
+      }
+    });
+  }
 
-  @override
-  State<_bodySection> createState() => __bodySectionState();
-}
-
-// ignore: camel_case_types
-class __bodySectionState extends State<_bodySection> {
+  late EventList _mcontent = EventList();
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Home Screen'),
+   return Scaffold(
+      appBar: AppBar(
+      title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              icon: Icon(Icons.menu),
+              onPressed: () {},
+            ),
+            Text('Home',
+              style: TextStyle(color: Colors.black,
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () {},
+            ),
+          ],
+        ),
+      ),
+      body: Container(
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ..._buttons,
+              ],
+            ),
+            Expanded(
+              child : _mcontent,
+            )
+          ],
+        )
+      )
     );
   }
 }
+
+
