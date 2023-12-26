@@ -97,6 +97,14 @@ class Data {
         name: 'admin',
         profile: profileList[0],
         role: 'admin'),
+
+    Account(
+        email: 'user1',
+        password: '1',
+        name: 'user1',
+        profile: profileList[0],
+        role: 'user'),
+    
   ];
 
   static List<Ticket> ticketList = [

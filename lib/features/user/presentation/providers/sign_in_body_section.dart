@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:event_app/features/user/data/datasources/local/data.dart';
+import 'package:event_app/features/user/data/models/account.dart';
 import 'package:event_app/features/user/presentation/pages/main/main_screen.dart';
 import 'package:event_app/features/user/presentation/providers/snackbar.dart';
 import 'package:event_app/features/user/presentation/widgets/button.dart';
@@ -222,8 +223,12 @@ class _SignInBodySectionState extends State<SignInBodySection> {
     List<String> passwords = Data.accountList.map((e) => e.password).toList();
 
     if (emails.contains(email) && passwords.contains(password)) {
+      Account account =
+          Data.accountList.firstWhere((element) => element.email == email);
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const MainScreen()));
+          context,
+          MaterialPageRoute(
+              builder: (context) => MainScreen(account: account)));
     } else if (email.isEmpty || password.isEmpty) {
       MySnackBar.hideSnackBar(context);
       MySnackBar.showSnackBar(context, 'Email or password is empty');

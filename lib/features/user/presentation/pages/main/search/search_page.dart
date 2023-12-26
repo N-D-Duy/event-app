@@ -23,7 +23,7 @@ class _SearchScreenState extends State<SearchScreen> {
         .map((e) => pattern.firstMatch(e.toString())?.group(1) ?? '')
         .toList();
 
-    print(categories);
+
   }
 
   @override

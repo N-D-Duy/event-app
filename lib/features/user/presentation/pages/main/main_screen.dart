@@ -1,16 +1,34 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:event_app/features/user/presentation/pages/manage/manage_screen.dart';
+import 'package:flutter/material.dart';
+
+import 'package:event_app/features/user/data/models/account.dart';
 import 'package:event_app/features/user/presentation/pages/main/home/home_page.dart';
 import 'package:event_app/features/user/presentation/pages/main/profile/profile_page.dart';
 import 'package:event_app/features/user/presentation/pages/main/search/search_page.dart';
-import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  final Account account;
+  const MainScreen({
+    Key? key,
+    required this.account,
+  }) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
+  static String role = '';
+  String getRole() => role;
+
+  @override
+  void initState() {
+    super.initState();
+    role = widget.account.role;
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -28,11 +46,27 @@ class BottomNavigation extends StatefulWidget {
 
 class _BottomNavigationState extends State<BottomNavigation> {
   int _selectedIndex = 0;
-  List<Widget> pages = <Widget>[
-    const HomeScreen(),
-    const SearchScreen(),
-    const ProfileScreen(),
-  ];
+  String role = _MainScreenState().getRole();
+  bool isAdmin = false;
+  List<Widget> pages = [];
+
+  @override
+  void initState() {
+    super.initState();
+    isAdmin = role.compareTo('admin') == 0;
+    pages = !isAdmin
+        ? <Widget>[
+            const HomeScreen(),
+            const SearchScreen(),
+            const ProfileScreen(),
+          ]
+        : <Widget>[
+            const HomeScreen(),
+            const SearchScreen(),
+            const ManageScreen(),
+            const ProfileScreen(),
+          ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +88,26 @@ class _BottomNavigationState extends State<BottomNavigation> {
                         _selectedIndex = index;
                       });
                     },
-                    items: const [
-                      BottomNavigationBarItem(
-                          icon: Icon(Icons.home), label: 'Home'),
-                      BottomNavigationBarItem(
-                          icon: Icon(Icons.search), label: 'Search'),
-                      BottomNavigationBarItem(
-                          icon: Icon(Icons.person), label: 'Profile'),
-                    ],
+                    items: !isAdmin
+                        ? const [
+                            BottomNavigationBarItem(
+                                icon: Icon(Icons.home), label: 'Home'),
+                            BottomNavigationBarItem(
+                                icon: Icon(Icons.search), label: 'Search'),
+                            BottomNavigationBarItem(
+                                icon: Icon(Icons.person), label: 'Profile'),
+                          ]
+                        : const [
+                            BottomNavigationBarItem(
+                                icon: Icon(Icons.home), label: 'Home'),
+                            BottomNavigationBarItem(
+                                icon: Icon(Icons.search), label: 'Search'),
+                            BottomNavigationBarItem(
+                                icon: Icon(Icons.manage_accounts),
+                                label: 'Manage'),
+                            BottomNavigationBarItem(
+                                icon: Icon(Icons.person), label: 'Profile'),
+                          ],
                     currentIndex: _selectedIndex,
                     selectedItemColor: Colors.black,
                     unselectedItemColor: Colors.grey[600],
